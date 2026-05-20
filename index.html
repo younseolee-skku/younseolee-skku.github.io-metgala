@@ -247,9 +247,9 @@
                                 브랜드 공식 인스타그램 계정 내 모든 게시물(Post) 개별 비교
                             </h3>
                             <div class="flex bg-white p-1 border border-neutral-200 rounded-lg gap-1">
-                                <button onclick="switchBrandFeed('Chanel')" id="feed-btn-Chanel" class="feed-tab-btn px-3 py-1 text-xs font-medium rounded-md bg-redcarpet text-white transition">Chanel</button>
-                                <button onclick="switchBrandFeed('Dior')" id="feed-btn-Dior" class="feed-tab-btn px-3 py-1 text-xs font-medium rounded-md text-neutral-600 hover:text-neutral-900 transition">Dior</button>
-                                <button onclick="switchBrandFeed('SaintLaurent')" id="feed-btn-SaintLaurent" class="feed-tab-btn px-3 py-1 text-xs font-medium rounded-md text-neutral-600 hover:text-neutral-900 transition">Saint Laurent</button>
+                                <button onclick="switchBrandFeed('Chanel')" id="feed-btn-Chanel" class="feed-tab-btn px-3 py-1 text-xs font-medium rounded-md bg-redcarpet text-white transition">Chanel (제니)</button>
+                                <button onclick="switchBrandFeed('Dior')" id="feed-btn-Dior" class="feed-tab-btn px-3 py-1 text-xs font-medium rounded-md text-neutral-600 hover:text-neutral-900 transition">Dior (지수)</button>
+                                <button onclick="switchBrandFeed('SaintLaurent')" id="feed-btn-SaintLaurent" class="feed-tab-btn px-3 py-1 text-xs font-medium rounded-md text-neutral-600 hover:text-neutral-900 transition">Saint Laurent (로제)</button>
                             </div>
                         </div>
 
@@ -345,14 +345,14 @@
             lv:     [95, 95, 78, 78, 78, 87, 91, 100, 99, 84, 80, 79, 75, 81, 87, 91]
         };
 
-        // --- 4. CSV 원본 파일 데이터 완벽 연동 매핑 매트릭스 ---
+        // --- 4. CSV 원본 파일 데이터 완벽 연동 매핑 매트릭스 (BP Featured 명칭을 각각 제니, 지수, 로제로 커스텀 변경) ---
         const csvBrandFeedData = {
             Chanel: [
-                { id: 1, type: "BP Featured", celebs: "Jennie, Margot Robbie, Gracie Abrams, Lily-Rose Depp", likes: 845000, url: "https://www.instagram.com/p/DX9B3EMDusN/" },
+                { id: 1, type: "제니 피처링", celebs: "Jennie, Margot Robbie, Gracie Abrams, Lily-Rose Depp", likes: 845000, url: "https://www.instagram.com/p/DX9B3EMDusN/" },
                 { id: 2, type: "Other Celebs", celebs: "Lily-Rose Depp, A$AP Rocky, Gracie Abrams, Ayo Edebiri, Bhavitha Mandava, Awar Odhiang", likes: 335000, url: "https://www.instagram.com/p/DX9rauRjkcN/" }
             ],
             Dior: [
-                { id: 1, type: "BP Featured", celebs: "Jisoo", likes: 1490000, url: "https://www.instagram.com/p/DX8UNQfiIsD/" },
+                { id: 1, type: "지수 단독 피드", celebs: "Jisoo", likes: 1490000, url: "https://www.instagram.com/p/DX8UNQfiIsD/" },
                 { id: 2, type: "Other Celebs", celebs: "Paul Anthony Kelly", likes: 114000, url: "https://www.instagram.com/p/DX85sSpiLfa/" },
                 { id: 3, type: "Other Celebs", celebs: "Naomi Watts, Karlie Kloss", likes: 137000, url: "https://www.instagram.com/p/DX9GNYVCLDy/" },
                 { id: 4, type: "Other Celebs", celebs: "Alexa Chung, Miranda Kerr", likes: 72000, url: "https://www.instagram.com/p/DX9e1CBiBmH/" },
@@ -360,8 +360,8 @@
                 { id: 6, type: "Other Celebs", celebs: "Sunday Rose", likes: 54000, url: "https://www.instagram.com/p/DYBVkaziHk5/" }
             ],
             SaintLaurent: [
-                { id: 1, type: "BP Featured (Cover)", celebs: "Rosé, Doja Cat, Loli Bahia, Connor Storrie, Charlotte Gainsbourg, Kate Moss", likes: 86000, url: "https://www.instagram.com/p/DYAXV3CmqBs/" },
-                { id: 2, type: "BP Featured", celebs: "Connor Storrie, Anja Rubik, Kate Moss, Rauw Alejandro, Rosé, Charlotte Gainsbourg", likes: 47000, url: "https://www.instagram.com/p/DYAd_AnnTLw/" },
+                { id: 1, type: "로제 메인 커버 피드", celebs: "Rosé, Doja Cat, Loli Bahia, Connor Storrie, Charlotte Gainsbourg, Kate Moss", likes: 86000, url: "https://www.instagram.com/p/DYAXV3CmqBs/" },
+                { id: 2, type: "로제 피처링", celebs: "Connor Storrie, Anja Rubik, Kate Moss, Rauw Alejandro, Rosé, Charlotte Gainsbourg", likes: 47000, url: "https://www.instagram.com/p/DYAd_AnnTLw/" },
                 { id: 3, type: "Other Celebs", celebs: "Charli xcx, Rauw Alejandro, Anthony Vaccarello, Charlotte Gainsbourg, Anja Rubik, Loli Bahia", likes: 22000, url: "https://www.instagram.com/p/DYAk20Sk93J/" }
             ]
         };
@@ -371,10 +371,10 @@
         window.onload = function() {
             initInfluenceCharts();
             initTrendsChart();
-            initBrandIgChart('Chanel'); // 초기 실행 시 샤넬 인스타 피드 노출
+            initBrandIgChart('Chanel'); // 초기 로딩 시 샤넬 피드 활성화
         };
 
-        // 1번 인스타그램 필터 연동 함수
+        // 1번 인스타그램 복합 필터 연동 함수
         function initInfluenceCharts() {
             const commonOptions = {
                 responsive: true,
@@ -440,7 +440,7 @@
             sharesChart.update();
         }
 
-        // 2번 룩 아카이브 스위처
+        // 2번 룩 아카이브 전환 탭
         function switchGallery(key) {
             document.querySelectorAll('.gallery-btn').forEach(btn => {
                 btn.classList.remove('bg-redcarpet', 'text-white', 'font-medium');
@@ -456,7 +456,7 @@
             document.getElementById('gallery-text').innerText = galleryDetails[key].text;
         }
 
-        // 3-1 구글 트렌드 차트
+        // 3-1 구글 트렌드 분석 라인 차트
         function initTrendsChart() {
             const ctx = document.getElementById('trendsChart').getContext('2d');
             new Chart(ctx, {
@@ -482,7 +482,7 @@
             });
         }
 
-        // 3-2 브랜드 피드별 전체 개별 포스트 그래프 및 사진 카드 렌더러
+        // 3-2 브랜드 피드별 전체 개별 포스트 그래프 및 사진 카드 렌더러 (멤버명 직접 바인딩)
         function initBrandIgChart(brandKey) {
             const posts = csvBrandFeedData[brandKey];
             const labels = posts.map(p => `Post ${p.id} (${p.type})`);
@@ -490,7 +490,6 @@
             
             const ctx = document.getElementById('brandIgChart').getContext('2d');
             
-            // 기존 차트 객체가 존재하면 파괴하고 새로 생성 (동적 업데이트용)
             if (brandIgChart) {
                 brandIgChart.destroy();
             }
@@ -502,7 +501,7 @@
                     datasets: [{
                         label: '좋아요 수 (Likes Count)',
                         data: dataValues,
-                        backgroundColor: posts.map(p => p.type.includes('BP') ? '#8A111A' : '#cbd5e1'),
+                        backgroundColor: posts.map(p => p.type !== 'Other Celebs' ? '#8A111A' : '#cbd5e1'),
                         borderRadius: 4
                     }]
                 },
@@ -526,11 +525,9 @@
                 }
             });
 
-            // 아래에 포스트별 사진 홀더 카드 및 정보 동적 빌드
             renderFeedGrid(posts);
         }
 
-        // 브랜드 피드 전환 버튼 제어
         function switchBrandFeed(brandKey) {
             document.querySelectorAll('.feed-tab-btn').forEach(btn => {
                 btn.classList.remove('bg-redcarpet', 'text-white');
@@ -543,13 +540,13 @@
             initBrandIgChart(brandKey);
         }
 
-        // 개별 포스트의 캡처 사진 공간 구조 생성기
+        // 개별 포스트 그리드와 사진 홀더 생성
         function renderFeedGrid(posts) {
             const gridContainer = document.getElementById('brandFeedGrid');
-            gridContainer.innerHTML = ''; // 초기화
+            gridContainer.innerHTML = ''; 
 
             posts.forEach(p => {
-                const isBP = p.type.includes('BP');
+                const isBP = p.type !== 'Other Celebs';
                 const badgeColor = isBP ? 'bg-red-50 text-redcarpet border border-red-200' : 'bg-neutral-100 text-neutral-600 border border-neutral-200';
                 
                 const cardHtml = `
