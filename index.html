@@ -35,6 +35,27 @@
         .aspect-instagram-feed {
             aspect-ratio: 6 / 10;
         }
+
+        .range-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 2px;
+            outline: none;
+        }
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #8A111A;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+        }
+        
     </style>
 </head>
 <body class="bg-white text-neutral-800 font-sans-kr flex min-h-screen antialiased">
@@ -267,6 +288,26 @@
                         [구글 트렌드 결과] 멧갈라(5월 4일) 기점 4대 하우스 브랜드 글로벌 검색 추이 1달간 동반 상승
                     </h3>
                     <div class="h-64 relative">
+                    <div class="mb-6 bg-white border border-neutral-200 rounded-xl p-5">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-bold text-neutral-500 uppercase tracking-wider">📅 날짜 범위 조정</span>
+                            <span id="dateRangeLabel" class="text-xs font-bold text-redcarpet font-luxury tracking-wider">04-19 ~ 05-18 (전체 30일)</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="text-[10px] text-neutral-400 w-10 text-right" id="startLabel">04-19</span>
+                            <div class="flex-1 relative flex flex-col gap-2">
+                                <input type="range" id="startSlider" class="range-slider w-full" min="0" max="29" value="0" oninput="updateTrendsRange()">
+                                <input type="range" id="endSlider" class="range-slider w-full" min="0" max="29" value="29" oninput="updateTrendsRange()">
+                            </div>
+                            <span class="text-[10px] text-neutral-400 w-10" id="endLabel">05-18</span>
+                        </div>
+                        <div class="flex justify-center gap-2 mt-4">
+                            <button onclick="setTrendsPreset(0, 13)" class="px-3 py-1.5 text-[10px] font-bold border border-neutral-200 rounded-lg text-neutral-500 hover:border-redcarpet hover:text-redcarpet transition">멧갈라 전 2주</button>
+                            <button onclick="setTrendsPreset(13, 16)" class="px-3 py-1.5 text-[10px] font-bold border border-redcarpet rounded-lg text-redcarpet bg-red-50 transition">멧갈라 당일 ±1일</button>
+                            <button onclick="setTrendsPreset(15, 29)" class="px-3 py-1.5 text-[10px] font-bold border border-neutral-200 rounded-lg text-neutral-500 hover:border-redcarpet hover:text-redcarpet transition">멧갈라 후 2주</button>
+                            <button onclick="setTrendsPreset(0, 29)" class="px-3 py-1.5 text-[10px] font-bold border border-neutral-200 rounded-lg text-neutral-500 hover:border-redcarpet hover:text-redcarpet transition">전체 보기</button>
+                        </div>
+                    </div>
                         <canvas id="trendsChart"></canvas>
                     </div>
                     <p class="text-xs text-neutral-500 mt-4 leading-relaxed tracking-wide font-light">
@@ -591,9 +632,11 @@
             }, 120);
         }
 
+        let trendsChart;
+
         function initTrendsChart() {
             const ctx = document.getElementById('trendsChart').getContext('2d');
-            new Chart(ctx, {
+            trendsChart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: trendTimeline.labels,
@@ -614,6 +657,38 @@
                     }
                 }
             });
+        }
+
+        function updateTrendsRange() {
+            let start = parseInt(document.getElementById('startSlider').value);
+            let end = parseInt(document.getElementById('endSlider').value);
+
+            if (start > end) {
+                const active = document.activeElement.id;
+                if (active === 'startSlider') { start = end; document.getElementById('startSlider').value = start; }
+                else { end = start; document.getElementById('endSlider').value = end; }
+            }
+
+            const slicedLabels = trendTimeline.labels.slice(start, end + 1);
+            const dayCount = end - start + 1;
+
+            document.getElementById('startLabel').innerText = trendTimeline.labels[start];
+            document.getElementById('endLabel').innerText = trendTimeline.labels[end];
+            document.getElementById('dateRangeLabel').innerText =
+                `${trendTimeline.labels[start]} ~ ${trendTimeline.labels[end]} (${dayCount}일)`;
+
+            trendsChart.data.labels = slicedLabels;
+            trendsChart.data.datasets[0].data = trendTimeline.chanel.slice(start, end + 1);
+            trendsChart.data.datasets[1].data = trendTimeline.dior.slice(start, end + 1);
+            trendsChart.data.datasets[2].data = trendTimeline.ysl.slice(start, end + 1);
+            trendsChart.data.datasets[3].data = trendTimeline.lv.slice(start, end + 1);
+            trendsChart.update();
+        }
+
+        function setTrendsPreset(start, end) {
+            document.getElementById('startSlider').value = start;
+            document.getElementById('endSlider').value = end;
+            updateTrendsRange();
         }
 
         function initBrandIgChart(brandKey) {
