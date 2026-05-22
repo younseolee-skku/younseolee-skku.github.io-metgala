@@ -30,15 +30,20 @@
         .slide-fade {
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
+
+        /* 인스타 피드 전용 6:10 황금 세로 비율 종횡비 클래스 */
+        .aspect-instagram-feed {
+            aspect-ratio: 6 / 10;
+        }
     </style>
 </head>
 <body class="bg-white text-neutral-800 font-sans-kr flex min-h-screen antialiased">
 
-    <aside class="w-64 bg-white border-r border-neutral-100 fixed h-screen top-0 left-0 z-30 flex flex-col justify-between p-8 hidden md:flex">
+    <aside class="w-64 bg-white border-r border-neutral-200 fixed h-screen top-0 left-0 z-30 flex flex-col justify-between p-8 hidden md:flex">
         <div>
             <div class="mb-12 pt-4">
                 <span class="font-luxury text-redcarpet tracking-widest text-xs uppercase block mb-1">Intelligence Core</span>
-                <h2 class="font-luxury text-xl font-bold tracking-tight text-neutral-900 border-b border-neutral-100 pb-5">MET GALA '26</h2>
+                <h2 class="font-luxury text-xl font-bold tracking-tight text-neutral-900 border-b border-neutral-200 pb-5">MET GALA '26</h2>
             </div>
             
             <nav class="space-y-2">
@@ -174,8 +179,8 @@
                         </div>
 
                         <div class="space-y-6">
-                            <div class="w-full h-96 bg-neutral-100 rounded-xl overflow-hidden relative group flex items-center justify-center border border-neutral-200">
-                                <img id="slider-image" src="jennie1.jpg" alt="Met Gala Gown Look" class="w-full h-full object-cover slide-fade">
+                            <div class="w-full h-[26rem] bg-neutral-100 rounded-xl overflow-hidden relative group flex items-center justify-center border border-neutral-200">
+                                <img id="slider-image" src="jennie1.webp" alt="Met Gala Gown Look" class="w-full h-full object-cover slide-fade">
                                 
                                 <div class="absolute top-0 inset-x-0 bg-gradient-to-b from-black/60 via-transparent to-transparent p-5 flex justify-between items-center z-10">
                                     <div>
@@ -236,7 +241,7 @@
                     <div class="flex items-center gap-2 mb-1.5">
                         <span class="text-xs font-bold tracking-widest text-neutral-400 uppercase font-luxury">03. Brand Performance Statistics</span>
                     </div>
-                    <h2 class="text-2xl font-bold text-neutral-900 tracking-tight">럭셔리 브랜드 수혜 규모 및 피드 성과 검증</h2>
+                    <h2 class="text-xl md:text-2xl font-bold text-neutral-900 tracking-tight">럭셔리 브랜드 수혜 규모 및 피드 성과 검증</h2>
                 </div>
 
                 <div class="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
@@ -248,7 +253,7 @@
                         <canvas id="trendsChart"></canvas>
                     </div>
                     <p class="text-xs text-neutral-500 mt-4 leading-relaxed tracking-wide font-light">
-                        블랙핑크 멤버들이 각각 뮤즈로 활약 중인 4대 럭셔리 하우스 브랜드(Chanel, Dior, YSL, Louis Vuitton)의 실질 구글 트렌드 검색어 관심도 데이터를 멧갈라 당일(5월 4일) 기점으로 전후 2주씩 포함하여 총 1달 동안 정밀 추적한 시계열 그래프입니다. 전 브랜드 모두 당해 메인 위크에 글로벌 서치 인덱스가 일제히 한계 한도 수치인 <strong>100</strong> 부근으로 동반 수직 상승하는 압도적인 글로벌 마케팅 수혜를 입증하고 있습니다.
+                        블랙핑크 멤버들이 각각 뮤즈로 활약 중인 4대 럭셔리 하우스 브랜드(Chanel, Dior, YSL, Louis Vuitton)의 실질 구글 트렌드 검색어 관심도 데이터를 멧갈라 당일(5월 4일) 기점으로 전후 2주씩 포함하여 총 1달 동안 정밀 추적한 시계열 그래프입니다. 전 브랜드 모두 당해 메인 위크에 글로벌 서치 인덱스가 일제히 한계 한도 수치인 <strong>100</strong> 부근으로 동반 수직 상승하는 마케팅 브랜딩 시너지를 전세계에 증명합니다.
                     </p>
                 </div>
 
@@ -325,20 +330,20 @@
             Rose:   { name: '로제', likes: 1933684, comments: 15788, shares: 76900 }
         };
 
-        // --- 2. 착장 3개 슬라이더 정밀 매핑 구조 (은서님 업로드 파일명 동기화) ---
+        // --- 2. 착장 슬라이더 정밀 매핑 데이터셋 (.webp 교정 완료) ---
         const galleryDetails = {
             jennie: {
                 brand: "CHANEL", designer: "Chanel Atelier (540 Hours)",
-                images: ["jennie1.jpg", "jennie2.jpg", "jennie3.jpg"],
+                images: ["jennie1.webp", "jennie2.webp", "jennie3.webp"],
                 texts: [
                     "푸른빛 물결처럼 반짝이는 스팽글이 전신을 꼼꼼히 감싼 코르셋 드레스는 한눈에 시선을 끌어당깁니다. 샤넬 아틀리에가 540시간을 들여 완성한 드레스에는 1만5,000개의 자수를 올렸습니다.",
                     "샤넬 아틀리에가 가공한 실버-블루 메탈릭 텍스처는 미장센의 전방위적인 스포트라이트를 흡수하며, 가슴에서 골반 라인까지 떨어지는 타이트한 코르셋 보디 구조를 입체적으로 장식합니다.",
-                    "특히 이번 멧갈라에서 제니의 '머메이드 메이크업'이 글로벌 뷰티 씬에서 엄청난 화제를 모았습니다. 올드하거나 과해 보일 수 있는 글램한 전신 스팽글 드레스 콘셉트 위에, 제니는 엉뚱하게도 날것의 주근깨를 페이셜 전면에 얹어 분위기를 완벽하게 반전시켰습니다. 드레스의 클래식한 화려함และ 주근깨의 키치한 무드가 절묘하게 섞여 유니크하고 모던한 인어공주 무드가 완성되었습니다."
+                    "특히 이번 멧갈라에서 제니의 '머메이드 메이크업'이 글로벌 뷰티 씬에서 엄청난 화제를 모았습니다. 올드하거나 과해 보일 수 있는 글램한 전신 스팽글 드레스 콘셉트 위에, 제니는 엉뚱하게도 날것의 주근깨를 페이셜 전면에 얹어 분위기를 완벽하게 반전시켰습니다. 드레스의 클래식한 화려함과 주근깨의 키치한 무드가 절묘하게 섞여 유니크하고 모던한 인어공주 무드가 완성되었습니다."
                 ]
             },
             rose: {
                 brand: "SAINT LAURENT", designer: "Anthony Vaccarello",
-                images: ["rose1.jpg", "rose2.jpg", "rose3.jpg"],
+                images: ["rose1.webp", "rose2.webp", "rose3.webp"],
                 texts: [
                     "이번 룩의 핵심은 드레스의 미니멀한 블랙 실루엣 디테일과 이브 생 로랑 특유의 에지 아우라 및 주얼리의 조화입니다.",
                     "이브 생 로랑은 과거 루브르 박물관 천장에 그려진 조르주 브라크의 작품 ‘새들(The Birds)’에서 깊은 영감을 받았습니다. 안토니 바카렐로는 최근 컬렉션에서 이 ‘새’ 모티브를 다시 불러냈고, 로제는 이를 귀걸이와 브로치로 화려하게 표현했습니다.",
@@ -347,7 +352,7 @@
             },
             jisoo: {
                 brand: "DIOR & DIOR BEAUTY", designer: "Jonathan Anderson",
-                images: ["jisoo1.jpg", "jisoo2.jpg", "jisoo3.jpg"],
+                images: ["jisoo1.webp", "jisoo2.webp", "jisoo3.webp"],
                 texts: [
                     "이번 룩의 중심에는 자연스럽게 빛나는 로즈 빛 광채가 있었다. 디올 크리에이티브 디렉터 조나단 앤더슨이 모네의 작품에서 영감 받아 디자인한 핑크 컬러의 디올 커스텀 드레스입니다.",
                     "드레스 위로 섬세한 플로럴 디테일과 꽃을 형상화한 헤드 피스가 겹쳐지며 전체 룩은 하나의 인상주의 회화처럼 캔버스 위에 완성되었습니다.",
@@ -356,7 +361,7 @@
             },
             lisa: {
                 brand: "ROBERT WUN", designer: "Robert Wun Haute Couture",
-                images: ["lisa1.jpg", "lisa2.jpg", "lisa3.jpg"],
+                images: ["lisa1.webp", "lisa2.webp", "lisa3.webp"],
                 texts: [
                     "리사는 크리스털로 눈부시게 수놓은 시스루 드레스를 입고 레드 카펫을 밟았습니다. 하지만 그녀의 룩에서 가장 눈에 띈 것은 거대한 베일이었습니다.",
                     "로버트 운의 꾸뛰르 컬렉션 시그니처인 어깨 위 팔 장식 레이아웃이 독보적인 전위성을 형성합니다. 리사는 현장 인터뷰를 통해 이번 룩에 대한 독특한 비하인드를 깜짝 전하기도 했습니다.",
@@ -365,7 +370,7 @@
             }
         };
 
-        // --- 3. 구글 트렌드 4월 19일 ~ 5월 18일 (1달 풀 데이터셋 수치 매핑) ---
+        // --- 3. 구글 트렌드 풀 시계열 데이터 타임라인 ---
         const trendTimeline = {
             labels: [
                 "04-19", "04-20", "04-21", "04-22", "04-23", "04-24", "04-25", "04-26", "04-27", "04-28", 
@@ -378,7 +383,7 @@
             lv:     [92, 76, 78, 77, 77, 85, 95, 95, 78, 78, 78, 87, 91, 100, 99, 84, 80, 79, 75, 81, 87, 91, 78, 74, 73, 75, 81, 88, 88, 76]
         };
 
-        // --- 4. 인스타그램 개별 피드 카드 연동 아카이브 (제니 추가 게시물 및 업로드 파일명 완전 동기화) ---
+        // --- 4. 인스타그램 공식 피드 데이터 및 텍스트 교정 매트릭스 ---
         const csvBrandFeedData = {
             Chanel: [
                 { id: 1, type: "제니 피처링 메인", celebs: "Jennie, Margot Robbie, Gracie Abrams, Lily-Rose Depp", likes: 845000, url: "https://www.instagram.com/p/DX9B3EMDusN/", img: "chanel1.jpg" },
@@ -411,7 +416,6 @@
             updateGalleryUI(); 
         };
 
-        // 1번 인스타그램 메트릭 바 차트 빌더
         function initInfluenceCharts() {
             const commonOptions = {
                 responsive: true,
@@ -477,7 +481,6 @@
             sharesChart.update();
         }
 
-        // 2번 영역: 룩 갤러리 슬라이더 제어 로직
         function switchGallery(key) {
             currentActiveGown = key;
             currentSlideIndex = 0; 
@@ -525,7 +528,6 @@
             }, 120);
         }
 
-        // 3-1번 영역: 구글 트렌드 풀 시계열 차트
         function initTrendsChart() {
             const ctx = document.getElementById('trendsChart').getContext('2d');
             new Chart(ctx, {
@@ -551,7 +553,6 @@
             });
         }
 
-        // 3-2번 영역: 인스타 공식 피드 그래프 개별 비교
         function initBrandIgChart(brandKey) {
             const posts = csvBrandFeedData[brandKey];
             const labels = posts.map(p => `Post ${p.id} (${p.type})`);
@@ -607,8 +608,8 @@
                 const cardHtml = `
                     <div class="bg-white border border-neutral-200 rounded-xl p-4 flex flex-col justify-between shadow-sm hover:shadow-md transition">
                         <div>
-                            <div class="w-full h-48 bg-neutral-100 rounded-lg overflow-hidden mb-4 border border-neutral-200 relative">
-                                <img src="${p.img}" alt="Instagram capture" class="w-full h-full object-cover">
+                            <div class="w-full aspect-instagram-feed bg-neutral-100 rounded-lg overflow-hidden mb-4 border border-neutral-100 relative">
+                                <img src="${p.img}" alt="Instagram capture style" class="w-full h-full object-cover">
                             </div>
                             
                             <div class="flex items-center justify-between gap-2 mb-2">
@@ -630,7 +631,6 @@
             });
         }
 
-        // MD 벤치마킹 데이터 결합 보고서 텍스트 문서 다운로드 로직
         function downloadReport() {
             const designChoice = document.getElementById('designChoice').value;
             const memoContent = document.getElementById('mdMemo').value;
