@@ -69,7 +69,7 @@
                 </a>
             </nav>
         </div>
-        <div class="text-[9px] text-neutral-400 font-luxury tracking-widest border-t border-neutral-100 pt-5">
+        <div class="text-[9px] text-neutral-400 font-luxury tracking-widest border-t border-neutral-200 pt-5">
             &copy; 2026 LUXURY FASHION MD.
         </div>
     </aside>
@@ -282,6 +282,40 @@
                         </div>
                     </div>
 
+                    <div class="bg-neutral-50 p-6 rounded-xl border border-neutral-200 space-y-6">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-neutral-200 pb-3">
+                            <h3 class="text-xs font-bold text-redcarpet flex items-center gap-1.5 font-luxury uppercase tracking-wider">
+                                🏆 Wearisma Report: The Met Gala 2026’s EMV Champions
+                            </h3>
+                            <span class="text-[10px] text-neutral-400 font-sans-kr">*Wearisma 파트너십 분석 기사 배포 인덱스</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-7 h-56 relative">
+                                <canvas id="wearismaEmvChart"></canvas>
+                            </div>
+
+                            <div class="lg:col-span-5 space-y-4 max-h-60 overflow-y-auto pr-2 text-neutral-600 text-xs md:text-sm font-light leading-relaxed tracking-wide italic">
+                                <div class="border-l-2 border-l-[#8A111A] pl-3">
+                                    <strong class="text-neutral-900 not-italic font-bold text-xs block mb-0.5">1st. Saint Laurent ($186.4M)</strong>
+                                    "Saint Laurent is the undisputed champion of the Met Gala 2026, earning an EMV of $186.4 million – the highest of any brand tracked this year."
+                                </div>
+                                <div class="border-l-2 border-l-[#8A111A] pl-3">
+                                    <strong class="text-neutral-900 not-italic font-bold text-xs block mb-0.5">2nd. Dior ($162.7M)</strong>
+                                    "Dior comes in at second place with an EMV of $162.7 million and 226.1 million engagements – results built on some of the most high-profile individual appearances of the night. Jisoo from BLACKPINK followed with $4.0M, making the K-pop constellation around Dior impossible to ignore."
+                                </div>
+                                <div class="border-l-2 border-l-neutral-300 pl-3">
+                                    <strong class="text-neutral-400 not-italic font-bold text-xs block mb-0.5">3rd. Loewe ($150.2M)</strong>
+                                    <span class="text-neutral-400">"Loewe captured third place performance metric tracking via institutional data stream."</span>
+                                </div>
+                                <div class="border-l-2 border-l-[#8A111A] pl-3">
+                                    <strong class="text-neutral-900 not-italic font-bold text-xs block mb-0.5">4th. Chanel ($144.5M)</strong>
+                                    "Chanel secured fourth place with $144.5 million in EMV, exceptional numbers that, in any other year, would have secured a top two finish. Chanel achieved the highest average engagement rate (12.66%) among the top four brands. Jennie from BLACKPINK led the conversation, ahead of Nicole Kidman, A$AP Rocky, and Anna Wintour."
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="bg-white p-6 rounded-xl border-2 border-dashed border-neutral-200 flex flex-col justify-between">
                         <div>
                             <div class="flex justify-between items-center mb-4">
@@ -302,7 +336,7 @@
             </section>
 
 
-            <section id="section-conclusion" class="modern-card p-6 md:p-8 rounded-xl border border-neutral-200 scroll-mt-6">
+            <section id="section-conclusion" class="modern-card p-8 md:p-10 rounded-xl border border-neutral-200 scroll-mt-6">
                 <div class="flex items-center gap-2 mb-3">
                     <span class="text-xs font-bold tracking-widest text-neutral-400 uppercase font-luxury">04. Key Takeaways</span>
                 </div>
@@ -322,7 +356,6 @@
 
 
     <script>
-        // --- 1. 정량 오가닉 스크래핑 데이터셋 ---
         const memberData = {
             Jisoo:  { name: '지수', likes: 6632846, comments: 34798, shares: 154200 },
             Jennie: { name: '제니', likes: 2872212, comments: 13873, shares: 88500 },
@@ -330,12 +363,11 @@
             Rose:   { name: '로제', likes: 1933684, comments: 15788, shares: 76900 }
         };
 
-        // --- 2. 멧갈라 드레스 사진별 파일 형식 및 고유 해상도 매트릭스 결합 구조 (.png 및 .webp 전면 수립) ---
         const galleryDetails = {
             jennie: {
                 brand: "CHANEL", designer: "Chanel Atelier (540 Hours)",
                 images: ["jennie1.webp", "jennie2.webp", "jennie3.webp"],
-                ratios: ["904/1280", "896/1345", "896/1345"], // 각 이미지별 고유 종횡비 반영
+                ratios: ["904/1280", "896/1345", "896/1345"], 
                 texts: [
                     "푸른빛 물결처럼 반짝이는 스팽글이 전신을 꼼꼼히 감싼 코르셋 드레스는 한눈에 시선을 끌어당깁니다. 샤넬 아틀리에가 540시간을 들여 완성한 드레스에는 1만5,000개의 자수를 올렸습니다.",
                     "샤넬 아틀리에가 가공한 실버-블루 메탈릭 텍스처는 미장센의 전방위적인 스포트라이트를 흡수하며, 가슴에서 골반 라인까지 떨어지는 타이트한 코르셋 보디 구조를 입체적으로 장식합니다.",
@@ -344,7 +376,7 @@
             },
             rose: {
                 brand: "SAINT LAURENT", designer: "Anthony Vaccarello",
-                images: ["rose1.png", "rose2.webp", "rose3.webp"], // rose1.png 수정 완료
+                images: ["rose1.png", "rose2.webp", "rose3.webp"], 
                 ratios: ["878/1148", "896/1349", "952/1285"],
                 texts: [
                     "이번 룩의 핵심은 드레스의 미니멀한 블랙 실루엣 디테일과 이브 생 로랑 특유의 에지 아우라 및 주얼리의 조화입니다.",
@@ -374,7 +406,6 @@
             }
         };
 
-        // --- 3. 구글 트렌드 풀 시계열 데이터 타임라인 ---
         const trendTimeline = {
             labels: [
                 "04-19", "04-20", "04-21", "04-22", "04-23", "04-24", "04-25", "04-26", "04-27", "04-28", 
@@ -387,7 +418,6 @@
             lv:     [92, 76, 78, 77, 77, 85, 95, 95, 78, 78, 78, 87, 91, 100, 99, 84, 80, 79, 75, 81, 87, 91, 78, 74, 73, 75, 81, 88, 88, 76]
         };
 
-        // --- 4. 인스타그램 공식 피드 데이터 레이어 (dior2-dior5 이미지 스왑 및 chanel1.jpeg 단독 확장자 동기화 보존) ---
         const csvBrandFeedData = {
             Chanel: [
                 { id: 1, type: "제니 피처링 메인", celebs: "Jennie, Margot Robbie, Gracie Abrams, Lily-Rose Depp", likes: 845000, url: "https://www.instagram.com/p/DX9B3EMDusN/", img: "chanel1.jpeg" },
@@ -396,27 +426,28 @@
             ],
             Dior: [
                 { id: 1, type: "지수 단독 피드", celebs: "Jisoo", likes: 1490000, url: "https://www.instagram.com/p/DX8UNQfiIsD/", img: "dior1.jpg" },
-                { id: 2, type: "Other Celebs 모델", celebs: "Paul Anthony Kelly", likes: 114000, url: "https://www.instagram.com/p/DX85sSpiLfa/", img: "dior2.jpg" }, // Paul Anthony Kelly 위치 dior2 스왑 고정
+                { id: 2, type: "Other Celebs 모델", celebs: "Paul Anthony Kelly", likes: 114000, url: "https://www.instagram.com/p/DX85sSpiLfa/", img: "dior2.jpg" }, 
                 { id: 3, type: "Other Celebs 포멀", celebs: "Naomi Watts, Karlie Kloss", likes: 137000, url: "https://www.instagram.com/p/DX9GNYVCLDy/", img: "dior3.jpg" },
                 { id: 4, type: "Other Celebs 비하인드", celebs: "Alexa Chung, Miranda Kerr", likes: 72000, url: "https://www.instagram.com/p/DX9e1CBiBmH/", img: "dior4.jpg" },
-                { id: 5, type: "Other Celebs 스냅", celebs: "Sabrina Carpenter", likes: 1076000, url: "https://www.instagram.com/p/DX-SAk_COFC/", img: "dior5.jpg" }, // Sabrina Carpenter 위치 dior5 스왑 고정
+                { id: 5, type: "Other Celebs 스냅", celebs: "Sabrina Carpenter", likes: 1076000, url: "https://www.instagram.com/p/DX-SAk_COFC/", img: "dior5.jpg" }, 
                 { id: 6, type: "Other Celebs 주니어", celebs: "Sunday Rose", likes: 54000, url: "https://www.instagram.com/p/DYBVkaziHk5/", img: "dior6.jpg" }
             ],
             SaintLaurent: [
                 { id: 1, type: "로제 메인 커버 피드", celebs: "Rosé, Doja Cat, Loli Bahia, Connor Storrie, Charlotte Gainsbourg, Kate Moss", likes: 86000, url: "https://www.instagram.com/p/DYAXV3CmqBs/", img: "yls1.jpg" },
-                { id: 2, type: "로제 피처링 비주얼", celebs: "Connor Storrie, Anja Rubik, Kate Moss, Rauw Alejandro, Rosé, Charlotte Gainsbourg", likes: 47000, url: "https://www.instagram.com/p/DYAd_AnnTLw/", img: "yls2.jpg" },
+                { id: 2, type: "로제 추가 포스트", celebs: "Connor Storrie, Anja Rubik, Kate Moss, Rauw Alejandro, Rosé, Charlotte Gainsbourg", likes: 47000, url: "https://www.instagram.com/p/DYAd_AnnTLw/", img: "yls2.jpg" }, 
                 { id: 3, type: "Other Celebs", celebs: "Charli xcx, Rauw Alejandro, Anthony Vaccarello, Charlotte Gainsbourg, Anja Rubik, Loli Bahia", likes: 22000, url: "https://www.instagram.com/p/DYAk20Sk93J/", img: "yls3.jpg" }
             ]
         };
 
         let currentActiveGown = 'jennie';
         let currentSlideIndex = 0;
-        let likesChart, commentsChart, sharesChart, brandIgChart;
+        let likesChart, commentsChart, sharesChart, brandIgChart, wearismaChart;
 
         window.onload = function() {
             initInfluenceCharts();
             initTrendsChart();
             initBrandIgChart('Chanel');
+            initWearismaChart(); // 웨어리조마 EMV 가로 바 차트 연동
             updateGalleryUI(); 
         };
 
@@ -513,7 +544,6 @@
             updateGalleryUI();
         }
 
-        // 이미지 고유 규격을 실시간 동적 대입하여 온전하게 100% 렌더링되도록 수정된 코어 로직
         function updateGalleryUI() {
             const gown = galleryDetails[currentActiveGown];
             const imgEl = document.getElementById('slider-image');
@@ -523,7 +553,6 @@
             imgEl.style.transform = 'scale(0.98)';
             
             setTimeout(() => {
-                // 프레임 aspect-ratio와 이미지 src 수동 동기화 매핑
                 frameEl.style.aspectRatio = gown.ratios[currentSlideIndex];
                 imgEl.src = gown.images[currentSlideIndex];
                 
@@ -637,6 +666,35 @@
                     </div>
                 `;
                 gridContainer.insertAdjacentHTML('beforeend', cardHtml);
+            });
+        }
+
+        // [신규 가로 막대 그래프 빌더] Wearisma EMV 랭킹 시각화용 자바스크립트 엔진 (요청 색상 전면 지정)
+        function initWearismaChart() {
+            const ctx = document.getElementById('wearismaEmvChart').getContext('2d');
+            wearismaChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['1등 Saint Laurent', '2등 Dior', '3등 Loewe', '4등 Chanel'],
+                    datasets: [{
+                        label: 'EMV (단위: 백만 달러)',
+                        data: [186.4, 162.7, 150.2, 144.5],
+                        // 1, 2, 4등은 레드카펫 버건디 색상으로 하이라이트하고 3등은 무채색 회색 처리 완벽 반영
+                        backgroundColor: ['#8A111A', '#8A111A', '#cbd5e1', '#8A111A'],
+                        borderRadius: 4,
+                        barThickness: 24
+                    }]
+                },
+                options: {
+                    indexAxis: 'y', // 가로 막대 그래프 구성 조건
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { grid: { color: '#f1f5f9' }, ticks: { font: { size: 10 } } },
+                        y: { grid: { display: false }, ticks: { font: { size: 11, weight: 'bold' } } }
+                    }
+                }
             });
         }
 
