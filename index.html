@@ -110,7 +110,7 @@
             </div>
         </section>
 
-        <div class="max-w-5xl mx-auto w-full px-8 lg:px-16 py-24 space-y-64">
+        <div class="max-w-5xl mx-auto w-full px-8 lg:px-16 py-24 space-y-40">
 
             <section id="section-influence" class="modern-card p-10 md:p-12 rounded-xl scroll-mt-12">
                 <div class="border-b border-neutral-100 pb-5 mb-8">
@@ -209,7 +209,7 @@
                 <div class="lg:col-span-5 modern-card p-8 rounded-xl flex flex-col justify-between border-t-4 border-t-[#8A111A]">
                     <div>
                         <span class="bg-red-50 text-redcarpet text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider block w-max mb-4">Interactive Text Area</span>
-                        <h3 class="text-lg font-bold text-neutral-900 mb-1">실무 MD 기획 메모장</h3>
+                        <h3 class="text-lg font-bold text-neutral-900 mb-2">실무 MD 기획 메모장</h3>
                         <p class="text-neutral-500 text-xs leading-relaxed mb-6 font-light">
                             "내가 럭셔리 브랜드 MD라면 다음 시즌 컬렉션에 이 디자인 요소를 어떻게 반영하고 투자할 것인가?"를 아래 공간에 자유롭게 기재해 보세요.
                         </p>
@@ -236,7 +236,7 @@
             </section>
 
 
-            <section id="section-brand" class="modern-card p-8 md:p-10 rounded-xl space-y-14 scroll-mt-12">
+            <section id="section-brand" class="modern-card p-8 md:p-12 rounded-xl space-y-16 scroll-mt-12">
                 <div>
                     <div class="flex items-center gap-2 mb-1.5">
                         <span class="text-xs font-bold tracking-widest text-neutral-400 uppercase font-luxury">03. Brand Performance Statistics</span>
@@ -244,100 +244,98 @@
                     <h2 class="text-2xl font-bold text-neutral-900 tracking-tight">럭셔리 브랜드 수혜 규모 및 피드 성과 검증</h2>
                 </div>
 
-                <div class="bg-neutral-50 p-4 rounded-xl border border-neutral-200">
-                    <h3 class="text-xs font-bold text-neutral-700 mb-4 flex items-center gap-1.5">
+                <div class="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+                    <h3 class="text-xs font-bold text-neutral-700 mb-5 flex items-center gap-1.5">
                         <span class="w-1.5 h-1.5 bg-redcarpet rounded-full"></span>
                         [구글 트렌드 결과] 멧갈라(5월 4일) 기점 4대 하우스 브랜드 글로벌 검색 추이 1달간 동반 상승
                     </h3>
                     <div class="h-64 relative">
                         <canvas id="trendsChart"></canvas>
                     </div>
-                    <p class="text-xs text-neutral-500 mt-3 leading-relaxed tracking-wide font-light">
+                    <p class="text-xs text-neutral-500 mt-4 leading-relaxed tracking-wide font-light">
                         블랙핑크 멤버들이 각각 뮤즈로 활약 중인 4대 럭셔리 하우스 브랜드(Chanel, Dior, YSL, Louis Vuitton)의 실질 구글 트렌드 검색어 관심도 데이터를 멧갈라 당일(5월 4일) 기점으로 전후 2주씩 포함하여 총 1달 동안 정밀 추적한 시계열 그래프입니다. 전 브랜드 모두 당해 메인 위크에 글로벌 서치 인덱스가 일제히 한계 한도 수치인 100 부근으로 동반 수직 상승하는 마케팅 브랜딩 시너지를 전세계에 증명합니다.
                     </p>
                 </div>
 
-                <div class="space-y-6">
-                    <div class="bg-neutral-50 p-5 rounded-xl border border-neutral-200">
-                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5 mb-6">
-                            <h3 class="text-xs font-bold text-neutral-700 flex items-center gap-1.5">
-                                <span class="w-1.5 h-1.5 bg-redcarpet rounded-full"></span>
-                                브랜드 공식 인스타그램 계정 내 모든 게시물(Post) 개별 비교
-                            </h3>
-                            <div class="flex bg-white p-1 border border-neutral-200 rounded-lg gap-1">
-                                <button onclick="switchBrandFeed('Chanel')" id="feed-btn-Chanel" class="feed-tab-btn px-4 py-1.5 text-xs font-medium rounded-md bg-redcarpet text-white transition">Chanel (제니)</button>
-                                <button onclick="switchBrandFeed('Dior')" id="feed-btn-Dior" class="feed-tab-btn px-4 py-1.5 text-xs font-medium rounded-md text-neutral-600 hover:text-neutral-900 transition">Dior (지수)</button>
-                                <button onclick="switchBrandFeed('SaintLaurent')" id="feed-btn-SaintLaurent" class="feed-tab-btn px-4 py-1.5 text-xs font-medium rounded-md text-neutral-600 hover:text-neutral-900 transition">Saint Laurent (로제)</button>
-                            </div>
-                        </div>
-
-                        <div class="h-64 relative mb-8">
-                            <canvas id="brandIgChart"></canvas>
-                        </div>
-
-                        <div class="border-t border-neutral-200 pt-6">
-                            <p class="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-4">📸 선택된 브랜드 피드별 상세 데이터 및 실제 인스타그램 화면 아카이브</p>
-                            <div id="brandFeedGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                </div>
+                <div class="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5 mb-6">
+                        <h3 class="text-xs font-bold text-neutral-700 flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 bg-redcarpet rounded-full"></span>
+                            브랜드 공식 인스타그램 계정 내 모든 게시물(Post) 개별 비교
+                        </h3>
+                        <div class="flex bg-white p-1 border border-neutral-200 rounded-lg gap-1">
+                            <button onclick="switchBrandFeed('Chanel')" id="feed-btn-Chanel" class="feed-tab-btn px-4 py-1.5 text-xs font-medium rounded-md bg-redcarpet text-white transition">Chanel (제니)</button>
+                            <button onclick="switchBrandFeed('Dior')" id="feed-btn-Dior" class="feed-tab-btn px-4 py-1.5 text-xs font-medium rounded-md text-neutral-600 hover:text-neutral-900 transition">Dior (지수)</button>
+                            <button onclick="switchBrandFeed('SaintLaurent')" id="feed-btn-SaintLaurent" class="feed-tab-btn px-4 py-1.5 text-xs font-medium rounded-md text-neutral-600 hover:text-neutral-900 transition">Saint Laurent (로제)</button>
                         </div>
                     </div>
 
-                    <div class="bg-neutral-50 p-8 rounded-xl border border-neutral-200 space-y-8">
-                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-neutral-200 pb-4">
-                            <h3 class="text-sm font-bold text-redcarpet flex items-center gap-1.5 font-luxury uppercase tracking-wider">
-                                🏆 Wearisma Report: The Met Gala 2026’s EMV Champions
-                            </h3>
-                            <span class="text-xs text-neutral-400 font-sans-kr">*기사 데이터 기반 정량 검증 지표</span>
+                    <div class="h-64 relative mb-8">
+                        <canvas id="brandIgChart"></canvas>
+                    </div>
+
+                    <div class="border-t border-neutral-200 pt-6">
+                        <p class="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-5">📸 선택된 브랜드 피드별 상세 데이터 및 실제 인스타그램 화면 아카이브</p>
+                        <div id="brandFeedGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            </div>
+                    </div>
+                </div>
+
+                <div class="bg-neutral-50 p-8 rounded-xl border border-neutral-200 space-y-8">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-neutral-200 pb-4">
+                        <h3 class="text-sm font-bold text-redcarpet flex items-center gap-1.5 font-luxury uppercase tracking-wider">
+                            🏆 Wearisma Report: The Met Gala 2026’s EMV Champions
+                        </h3>
+                        <span class="text-xs text-neutral-400 font-sans-kr">*기사 데이터 기반 정량 검증 지표</span>
+                    </div>
+
+                    <div class="space-y-10">
+                        <div class="w-full h-72 relative bg-white p-4 rounded-xl border border-neutral-100 shadow-sm">
+                            <canvas id="wearismaEmvChart"></canvas>
                         </div>
 
-                        <div class="space-y-10">
-                            <div class="w-full h-72 relative bg-white p-4 rounded-xl border border-neutral-100 shadow-sm">
-                                <canvas id="wearismaEmvChart"></canvas>
-                            </div>
-
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-neutral-600 text-sm leading-relaxed tracking-wide font-light italic">
-                                <div class="space-y-6">
-                                    <div class="border-l-4 border-l-[#8A111A] pl-4 py-1">
-                                        <strong class="text-neutral-900 not-italic font-bold text-sm block mb-1">1st. Saint Laurent ($186.4M)</strong>
-                                        <p>Saint Laurent is the undisputed champion of the Met Gala 2026, earning an EMV of <span class="text-[#8A111A] not-italic font-bold bg-red-50 px-1.5 py-0.5 rounded shadow-xs">$186.4 million</span> – the highest of any brand tracked this year.</p>
-                                    </div>
-                                    <div class="border-l-4 border-l-[#8A111A] pl-4 py-1">
-                                        <strong class="text-neutral-900 not-italic font-bold text-sm block mb-1">2nd. Dior ($162.7M)</strong>
-                                        <p>Dior comes in at second place with an EMV of <span class="text-[#8A111A] not-italic font-bold bg-red-50 px-1.5 py-0.5 rounded shadow-xs">$162.7 million</span> and <span class="text-[#8A111A] not-italic font-bold bg-red-50 px-1.5 py-0.5 rounded shadow-xs">226.1 million engagements</span> – results built on some of the most high-profile individual appearances of the night.</p>
-                                        <p class="mt-3"><span class="text-[#8A111A] not-italic font-bold border-b-2 border-b-[#8A111A] text-base">Jisoo</span> from <span class="font-bold text-neutral-800 not-italic">BLACKPINK</span> followed with <span class="text-[#8A111A] not-italic font-bold bg-red-50 px-1.5 py-0.5 rounded shadow-xs">$4.0M</span>, making the K-pop constellation around Dior impossible to ignore.</p>
-                                    </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-neutral-600 text-sm leading-relaxed tracking-wide font-light italic">
+                            <div class="space-y-6">
+                                <div class="border-l-4 border-l-[#8A111A] pl-4 py-1">
+                                    <strong class="text-neutral-900 not-italic font-bold text-sm block mb-1">1st. Saint Laurent ($186.4M)</strong>
+                                    <p>Saint Laurent is the undisputed champion of the Met Gala 2026, earning an EMV of <span class="text-[#8A111A] not-italic font-bold bg-red-50 px-1 py-0.5 rounded">$186.4 million</span> – the highest of any brand tracked this year.</p>
                                 </div>
-                                
-                                <div class="space-y-6">
-                                    <div class="border-l-4 border-l-neutral-300 pl-4 py-1 opacity-60">
-                                        <strong class="text-neutral-400 not-italic font-bold text-sm block mb-1">3rd. Loewe ($150.2M)</strong>
-                                        <p class="text-neutral-400">Loewe captured third place performance metric tracking via institutional data stream analytics.</p>
-                                    </div>
-                                    <div class="border-l-4 border-l-[#8A111A] pl-4 py-1">
-                                        <strong class="text-neutral-900 not-italic font-bold text-sm block mb-1">4th. Chanel ($144.5M)</strong>
-                                        <p>Chanel secured fourth place with <span class="text-[#8A111A] not-italic font-bold bg-red-50 px-1.5 py-0.5 rounded shadow-xs">$144.5 million in EMV</span>, exceptional numbers that, in any other year, would have secured a top two finish.</p>
-                                        <p class="mt-2.5">Chanel achieved the highest average engagement rate (<span class="text-[#8A111A] not-italic font-bold bg-red-50 px-1.5 py-0.5 rounded shadow-xs">12.66%</span>) among the top four brands.</p>
-                                        <p class="mt-2.5"><span class="text-[#8A111A] not-italic font-bold border-b-2 border-b-[#8A111A] text-base">Jennie</span> from <span class="font-bold text-neutral-800 not-italic">BLACKPINK</span> led the conversation, ahead of Nicole Kidman, A$AP Rocky, and Anna Wintour.</p>
-                                    </div>
+                                <div class="border-l-4 border-l-[#8A111A] pl-4 py-1">
+                                    <strong class="text-neutral-900 not-italic font-bold text-sm block mb-1">2nd. Dior ($162.7M)</strong>
+                                    <p>Dior comes in at second place with an EMV of <span class="text-[#8A111A] not-italic font-bold bg-red-50 px-1 py-0.5 rounded">$162.7 million</span> and <span class="text-[#8A111A] not-italic font-bold bg-red-50 px-1 py-0.5 rounded">226.1 million engagements</span> – results built on some of the most high-profile individual appearances of the night.</p>
+                                    <p class="mt-2"><span class="text-[#8A111A] not-italic font-bold border-b-2 border-b-[#8A111A]">Jisoo</span> from <span class="font-bold text-neutral-800 not-italic">BLACKPINK</span> followed with <span class="text-[#8A111A] not-italic font-bold bg-red-50 px-1 py-0.5 rounded">$4.0M</span>, making the K-pop constellation around Dior impossible to ignore.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-6">
+                                <div class="border-l-4 border-l-neutral-300 pl-4 py-1 opacity-70">
+                                    <strong class="text-neutral-400 not-italic font-bold text-sm block mb-1">3rd. Loewe ($150.2M)</strong>
+                                    <p class="text-neutral-400">Loewe captured third place performance metric tracking via institutional data stream analytics tracking map.</p>
+                                </div>
+                                <div class="border-l-4 border-l-[#8A111A] pl-4 py-1">
+                                    <strong class="text-neutral-900 not-italic font-bold text-sm block mb-1">4th. Chanel ($144.5M)</strong>
+                                    <p>Chanel secured fourth place with <span class="text-[#8A111A] not-italic font-bold bg-red-50 px-1 py-0.5 rounded">$144.5 million in EMV</span>, exceptional numbers that, in any other year, would have secured a top two finish.</p>
+                                    <p class="mt-2">Chanel achieved the highest average engagement rate (<span class="text-[#8A111A] not-italic font-bold bg-red-50 px-1 py-0.5 rounded">12.66%</span>) among the top four brands.</p>
+                                    <p class="mt-2"><span class="text-[#8A111A] not-italic font-bold border-b-2 border-b-[#8A111A]">Jennie</span> from <span class="font-bold text-neutral-800 not-italic">BLACKPINK</span> led the conversation, ahead of Nicole Kidman, A$AP Rocky, and Anna Wintour.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="bg-white p-5 rounded-xl border-2 border-dashed border-neutral-200 flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-center mb-3">
-                                <h3 class="text-xs font-bold text-redcarpet uppercase tracking-wider font-luxury">Lisa Media Focus: Beyond Brand</h3>
-                                <span class="bg-red-50 text-redcarpet border border-red-200 text-[9px] font-bold px-2.5 py-0.5 rounded">Host Committee</span>
-                            </div>
-                            <p class="text-neutral-600 text-xs md:text-sm leading-relaxed tracking-wide font-light mb-4">
-                                데이터 분석에서 확인할 수 있듯 리사는 브랜드의 일반 마케팅 비교군(루이비통) 피드 리포트 군에는 누락되어 있으나, 단순 초청 셀럽 단계를 지나 <strong class="text-neutral-900 font-medium">‘2026 멧갈라 호스트 커미티 멤버’</strong>로 정식 등극했습니다. 특정 브랜드 종속 관계를 벗어나 독자적인 파워 브랜드로서 역할을 수행했음을 아래 공식 기사에서 확인할 수 있습니다.
-                            </p>
-                            <div class="space-y-1.5 border-t border-neutral-100 pt-3">
-                                <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">글로벌 보그 및 공식 미디어 링크 참조</p>
-                                <a href="https://www.vogue.com/article/lisa-looks-angelic-in-custom-robert-wun-at-the-2026-met-gala" target="_blank" class="block text-xs text-neutral-500 hover:text-redcarpet hover:underline truncate">🔗 Vogue: Lisa Looks Angelic in Custom Robert Wun</a>
-                                <a href="https://sports.donga.com/ent/article/all/20260505/133862324/1" target="_blank" class="block text-xs text-neutral-500 hover:text-redcarpet hover:underline truncate">🔗 스포츠동아: 멧 갈라 호스트 커미티 리사, 전통 춤 3D 스캔 비하인드</a>
-                            </div>
+                <div class="bg-white p-6 rounded-xl border-2 border-dashed border-neutral-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-xs font-bold text-redcarpet uppercase tracking-wider font-luxury">Lisa Media Focus: Beyond Brand</h3>
+                            <span class="bg-red-50 text-redcarpet border border-red-200 text-[9px] font-bold px-2.5 py-0.5 rounded">Host Committee</span>
+                        </div>
+                        <p class="text-neutral-600 text-xs md:text-sm leading-relaxed tracking-wide font-light mb-6">
+                            데이터 분석에서 확인할 수 있듯 리사는 브랜드의 일반 마케팅 비교군(루이비통) 피드 리포트 군에는 누락되어 있으나, 단순 초청 셀럽 단계를 지나 <strong class="text-neutral-900 font-medium">‘2026 멧갈라 호스트 커미티 멤버’</strong>로 정식 등극했습니다. 특정 브랜드 종속 관계를 벗어나 독자적인 파워 브랜드로서 역할을 수행했음을 아래 공식 기사에서 확인할 수 있습니다.
+                        </p>
+                        <div class="space-y-2 border-t border-neutral-100 pt-4">
+                            <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">글로벌 보그 및 공식 미디어 링크 참조</p>
+                            <a href="https://www.vogue.com/article/lisa-looks-angelic-in-custom-robert-wun-at-the-2026-met-gala" target="_blank" class="block text-xs text-neutral-500 hover:text-redcarpet hover:underline truncate">🔗 Vogue: Lisa Looks Angelic in Custom Robert Wun</a>
+                            <a href="https://sports.donga.com/ent/article/all/20260505/133862324/1" target="_blank" class="block text-xs text-neutral-500 hover:text-redcarpet hover:underline truncate">🔗 스포츠동아: 멧 갈라 호스트 커미티 리사, 전통 춤 3D 스캔 비하인드</a>
                         </div>
                     </div>
                 </div>
@@ -348,8 +346,8 @@
                 <div class="flex items-center gap-2 mb-3">
                     <span class="text-xs font-bold tracking-widest text-neutral-400 uppercase font-luxury">04. Key Takeaways</span>
                 </div>
-                <h2 class="text-2xl font-bold text-neutral-900 mb-4 tracking-tight">결론 및 마케팅 시사점</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs md:text-sm text-neutral-600 font-light leading-relaxed">
+                <h2 class="text-2xl font-bold text-neutral-900 mb-6 tracking-tight">결론 및 마케팅 시사점</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs md:text-sm text-neutral-600 font-light leading-relaxed tracking-wide">
                     <p>
                         블랙핑크 멤버들을 럭셔리 하우스의 최고 직급 글로벌 수석 앰버서더로 임명하고 공고한 파트너십을 다지는 데에는 매우 정교한 정량 데이터 지표가 자리 잡고 있었습니다. 글로벌 메가 이벤트 기점 시 한 번의 포스트 발행만으로도 브랜드 자산의 디지털 각인 효과를 천문학적인 EMV 규모로 리턴할 수 있는 인물들이기 때문입니다.
                     </p>
@@ -364,7 +362,6 @@
 
 
     <script>
-        // --- 1. 정량 오가닉 스크래핑 데이터셋 ---
         const memberData = {
             Jisoo:  { name: '지수', likes: 6632846, comments: 34798, shares: 154200 },
             Jennie: { name: '제니', likes: 2872212, comments: 13873, shares: 88500 },
@@ -372,7 +369,6 @@
             Rose:   { name: '로제', likes: 1933684, comments: 15788, shares: 76900 }
         };
 
-        // --- 2. 착장 드레스 사진별 고유 비율 데이터셋 ---
         const galleryDetails = {
             jennie: {
                 brand: "CHANEL", designer: "Chanel Atelier (540 Hours)",
@@ -416,7 +412,6 @@
             }
         };
 
-        // --- 3. 구글 트렌드 4월 19일 ~ 5월 18일 (1달 원본 전체 시계열 풀 데이터셋) ---
         const trendTimeline = {
             labels: [
                 "04-19", "04-20", "04-21", "04-22", "04-23", "04-24", "04-25", "04-26", "04-27", "04-28", 
@@ -429,7 +424,6 @@
             lv:     [92, 76, 78, 77, 77, 85, 95, 95, 78, 78, 78, 87, 91, 100, 99, 84, 80, 79, 75, 81, 87, 91, 78, 74, 73, 75, 81, 88, 88, 76]
         };
 
-        // --- 4. 인스타그램 공식 피드 데이터 및 6:10 연동 매트릭스 레이어 ---
         const csvBrandFeedData = {
             Chanel: [
                 { id: 1, type: "제니 피처링 메인", celebs: "Jennie, Margot Robbie, Gracie Abrams, Lily-Rose Depp", likes: 845000, url: "https://www.instagram.com/p/DX9B3EMDusN/", img: "chanel1.jpeg" },
@@ -451,39 +445,198 @@
             ]
         };
 
+        let currentActiveGown = 'jennie';
+        let currentSlideIndex = 0;
         let likesChart, commentsChart, sharesChart, brandIgChart, wearismaChart;
 
-        function updateInfluenceCharts() {
-            const activeMembers = Array.from(document.querySelectorAll('#memberFilters input:checked')).map(el => el.value);
-            const activeMetrics = Array.from(document.querySelectorAll('#metricFilters input:checked')).map(el => el.value);
-            
-            document.getElementById('likesChartContainer').style.display = activeMetrics.includes('likes') ? 'block' : 'none';
-            document.getElementById('commentsChartContainer').style.display = activeMetrics.includes('comments') ? 'block' : 'none';
-            document.getElementById('sharesChartContainer').style.display = activeMetrics.includes('shares') ? 'block' : 'none';
-            
-            const labels = [];
-            const likesData = [];
-            const commentsData = [];
-            const sharesData = [];
+        window.onload = function() {
+            initInfluenceCharts();
+            initTrendsChart();
+            initBrandIgChart('Chanel');
+            initWearismaChart(); 
+            updateGalleryUI(); 
+        };
 
-            activeMembers.forEach(m => {
-                labels.push(memberData[m].name);
-                likesData.push(memberData[m].likes);
-                commentsData.push(memberData[m].comments);
-                sharesData.push(memberData[m].shares);
+        function switchGallery(key) {
+            currentActiveGown = key;
+            currentSlideIndex = 0; 
+            
+            document.querySelectorAll('.gallery-btn').forEach(btn => {
+                btn.classList.remove('bg-redcarpet', 'text-white', 'font-medium');
+                btn.classList.add('bg-neutral-100', 'text-neutral-600');
+            });
+            
+            const targetBtn = document.getElementById(`btn-${key}`);
+            targetBtn.classList.remove('bg-neutral-100', 'text-neutral-600');
+            targetBtn.classList.add('bg-redcarpet', 'text-white', 'font-medium');
+
+            updateGalleryUI();
+        }
+
+        function nextSlide() {
+            const totalSlides = galleryDetails[currentActiveGown].images.length;
+            currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+            updateGalleryUI();
+        }
+
+        function prevSlide() {
+            const totalSlides = galleryDetails[currentActiveGown].images.length;
+            currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+            updateGalleryUI();
+        }
+
+        function updateGalleryUI() {
+            const gown = galleryDetails[currentActiveGown];
+            const imgEl = document.getElementById('slider-image');
+            const frameEl = document.getElementById('slider-frame');
+            
+            imgEl.style.opacity = '0';
+            imgEl.style.transform = 'scale(0.98)';
+            
+            setTimeout(() => {
+                frameEl.style.aspectRatio = gown.ratios[currentSlideIndex];
+                imgEl.src = gown.images[currentSlideIndex];
+                
+                document.getElementById('gallery-brand').innerText = gown.brand;
+                document.getElementById('gallery-designer').innerText = `Designer: ${gown.designer}`;
+                document.getElementById('slider-indexer').innerText = `${currentSlideIndex + 1} / ${gown.images.length}`;
+                document.getElementById('gallery-text').innerText = gown.texts[currentSlideIndex];
+                
+                imgEl.style.opacity = '1';
+                imgEl.style.transform = 'scale(1)';
+            }, 120);
+        }
+
+        function initInfluenceCharts() {
+            const commonOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+                    y: { grid: { color: '#f1f5f9' }, ticks: { font: { size: 10 } } }
+                }
+            };
+
+            likesChart = new Chart(document.getElementById('likesChart').getContext('2d'), {
+                type: 'bar',
+                data: { labels: [], datasets: [{ data: [], backgroundColor: '#8A111A', borderRadius: 4 }] },
+                options: commonOptions
             });
 
-            likesChart.data.labels = labels;
-            likesChart.data.datasets[0].data = likesData;
-            likesChart.update();
+            commentsChart = new Chart(document.getElementById('commentsChart').getContext('2d'), {
+                type: 'bar',
+                data: { labels: [], datasets: [{ data: [], backgroundColor: '#334155', borderRadius: 4 }] },
+                options: commonOptions
+            });
 
-            commentsChart.data.labels = labels;
-            commentsChart.data.datasets[0].data = commentsData;
-            commentsChart.update();
+            sharesChart = new Chart(document.getElementById('sharesChart').getContext('2d'), {
+                type: 'bar',
+                data: { labels: [], datasets: [{ data: [], backgroundColor: '#475569', borderRadius: 4 }] },
+                options: commonOptions
+            });
 
-            sharesChart.data.labels = labels;
-            sharesChart.data.datasets[0].data = sharesData;
-            sharesChart.update();
+            updateInfluenceCharts();
+        }
+
+        function initTrendsChart() {
+            const ctx = document.getElementById('trendsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: trendTimeline.labels,
+                    datasets: [
+                        { label: 'Chanel', data: trendTimeline.chanel, borderColor: '#1e293b', borderWidth: 2, tension: 0.1, pointRadius: 1.5 },
+                        { label: 'Dior', data: trendTimeline.dior, borderColor: '#8A111A', borderWidth: 2, tension: 0.1, pointRadius: 1.5 },
+                        { label: 'Saint Laurent', data: trendTimeline.ysl, borderColor: '#0284c7', borderWidth: 2, tension: 0.1, pointRadius: 1.5 },
+                        { label: 'Louis Vuitton', data: trendTimeline.lv, borderColor: '#7c3aed', borderWidth: 2, tension: 0.1, pointRadius: 1.5 }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { labels: { boxWidth: 10, font: { size: 11 } } } },
+                    scales: {
+                        x: { grid: { display: false }, ticks: { font: { size: 9 }, maxRotation: 45 } },
+                        y: { min: 60, max: 100, grid: { color: '#f1f5f9' }, ticks: { font: { size: 10 } } }
+                    }
+                }
+            });
+        }
+
+        function initBrandIgChart(brandKey) {
+            const posts = csvBrandFeedData[brandKey];
+            const labels = posts.map(p => `Post ${p.id} (${p.type})`);
+            const dataValues = posts.map(p => p.likes);
+            const ctx = document.getElementById('brandIgChart').getContext('2d');
+            
+            if (brandIgChart) { brandIgChart.destroy(); }
+            
+            brandIgChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: '좋아요 수 (Likes Count)',
+                        data: dataValues,
+                        backgroundColor: posts.map(p => p.type.includes('Other') ? '#cbd5e1' : '#8A111A'),
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+                        y: { grid: { color: '#f1f5f9' }, ticks: { font: { size: 10 } } }
+                    }
+                }
+            });
+
+            renderFeedGrid(posts);
+        }
+
+        function switchBrandFeed(brandKey) {
+            document.querySelectorAll('.feed-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-redcarpet', 'text-white');
+                btn.classList.add('text-neutral-600', 'hover:text-neutral-900');
+            });
+            document.getElementById(`feed-btn-${brandKey}`).classList.remove('text-neutral-600', 'hover:text-neutral-900');
+            document.getElementById(`feed-btn-${brandKey}`).classList.add('bg-redcarpet', 'text-white');
+            
+            initBrandIgChart(brandKey);
+        }
+
+        function renderFeedGrid(posts) {
+            const gridContainer = document.getElementById('brandFeedGrid');
+            gridContainer.innerHTML = ''; 
+
+            posts.forEach(p => {
+                const isBP = !p.type.includes('Other');
+                const badgeColor = isBP ? 'bg-red-50 text-redcarpet border border-red-200' : 'bg-neutral-100 text-neutral-600 border border-neutral-200';
+                
+                const cardHtml = `
+                    <div class="bg-white border border-neutral-200 rounded-xl p-4 flex flex-col justify-between shadow-sm hover:shadow-md transition">
+                        <div>
+                            <div class="w-full aspect-instagram-feed bg-neutral-100 rounded-lg overflow-hidden mb-4 border border-neutral-100 relative">
+                                <img src="${p.img}" alt="Instagram capture" class="w-full h-full object-cover">
+                            </div>
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="${badgeColor} text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">${p.type}</span>
+                                <span class="text-xs font-bold text-neutral-900">❤️ ${p.likes.toLocaleString()}</span>
+                            </div>
+                            <p class="text-neutral-600 text-xs font-light leading-relaxed mb-3 line-clamp-3">
+                                <strong class="text-neutral-900 font-medium">등장 셀럽:</strong> ${p.celebs}
+                            </p>
+                        </div>
+                        <a href="${p.url}" target="_blank" class="block w-full text-center border border-neutral-200 hover:border-redcarpet text-neutral-500 hover:text-redcarpet rounded-lg py-2 text-xs font-medium transition mt-2">
+                            🔗 인스타 원본 게시물 보기
+                        </a>
+                    </div>
+                `;
+                gridContainer.insertAdjacentHTML('beforeend', cardHtml);
+            });
         }
 
         // Wearisma EMV Champion 대형 가로 바 차트 렌더러
@@ -512,6 +665,34 @@
                     }
                 }
             });
+        }
+
+        function downloadReport() {
+            const designChoice = document.getElementById('designChoice').value;
+            const memoContent = document.getElementById('mdMemo').value;
+            
+            let txt = `======================================================================\n`;
+            txt += ` [MD MET GALA BENCHMARKING REPORT]\n`;
+            txt += `======================================================================\n\n`;
+            txt += `▶ [1. 선택한 디자인 A vs B 매트릭스 정보]:\n`;
+            txt += `   ${designChoice}\n\n`;
+            txt += `▶ [2. 본인이 직접 기재한 실무 MD 투자 전략 메모]:\n`;
+            txt += `   ------------------------------------------------------------------\n`;
+            txt += memoContent ? `   ${memoContent}` : `   (기재된 기획 내용이 존재하지 않습니다.)`;
+            txt += `\n   ------------------------------------------------------------------\n\n`;
+            txt += `▶ [3. 블랙핑크 멤버별 멧갈라 포스트 오가닉 성과 지표 (평균값)]:\n`;
+            txt += `   - 지수 (Dior)  : 좋아요 ${memberData.Jisoo.likes.toLocaleString()}회 | 댓글 ${memberData.Jisoo.comments.toLocaleString()}개\n`;
+            txt += `   - 리사 (Wun)   : 좋아요 ${memberData.Lisa.likes.toLocaleString()}회 | 댓글 ${memberData.Lisa.comments.toLocaleString()}개\n`;
+            txt += `   - 제니 (Chanel): 좋아요 ${memberData.Jennie.likes.toLocaleString()}회 | 댓글 ${memberData.Jennie.comments.toLocaleString()}개\n`;
+            txt += `   - 로제 (YSL)   : 좋아요 ${memberData.Rose.likes.toLocaleString()}회 | 댓글 ${memberData.Rose.comments.toLocaleString()}개\n\n`;
+            txt += `======================================================================\n`;
+            txt += `문서 자동 발행 일시: ${new Date().toLocaleString('ko-KR')}\n`;
+            
+            const blob = new Blob([txt], { type: 'text/plain;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'MD_MetGala_Benchmarking_Report.txt';
+            link.click();
         }
     </script>
 </body>
