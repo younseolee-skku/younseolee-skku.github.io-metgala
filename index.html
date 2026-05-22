@@ -133,7 +133,7 @@
 
         <div class="flex items-center gap-6 px-8 lg:px-16 py-8">
             <div class="flex-1 h-px bg-neutral-200"></div>
-            <span class="font-luxury text-4xl md:text-6xl font-bold tracking-widest text-neutral-100 select-none whitespace-nowrap">01. ORGANIC POWER</span>
+            <span class="font-luxury text-4xl md:text-6xl font-bold tracking-widest text-neutral-900 select-none whitespace-nowrap">01. ORGANIC POWER</span>
             <div class="flex-1 h-px bg-neutral-200"></div>
         </div>
         
@@ -191,7 +191,7 @@
 
             <div class="flex items-center gap-6 py-8">
                 <div class="flex-1 h-px bg-neutral-200"></div>
-                <span class="font-luxury text-4xl md:text-6xl font-bold tracking-widest text-neutral-100 select-none whitespace-nowrap">02. LOOK ARCHIVE</span>
+                <span class="font-luxury text-4xl md:text-6xl font-bold tracking-widest text-neutral-900 select-none whitespace-nowrap">02. LOOK ARCHIVE</span>
                 <div class="flex-1 h-px bg-neutral-200"></div>
             </div>
 
@@ -269,7 +269,7 @@
 
             <div class="flex items-center gap-6 py-8">
                 <div class="flex-1 h-px bg-neutral-200"></div>
-                <span class="font-luxury text-4xl md:text-6xl font-bold tracking-widest text-neutral-100 select-none whitespace-nowrap">03. BRAND BENEFIT</span>
+                <span class="font-luxury text-4xl md:text-6xl font-bold tracking-widest text-neutral-900 select-none whitespace-nowrap">03. BRAND BENEFIT</span>
                 <div class="flex-1 h-px bg-neutral-200"></div>
             </div>
             
@@ -302,10 +302,10 @@
                             <span class="text-[10px] text-neutral-400 w-10" id="endLabel">05-18</span>
                         </div>
                         <div class="flex justify-center gap-2 mt-4">
-                            <button onclick="setTrendsPreset(0, 13)" class="px-3 py-1.5 text-[10px] font-bold border border-neutral-200 rounded-lg text-neutral-500 hover:border-redcarpet hover:text-redcarpet transition">멧갈라 전 2주</button>
-                            <button onclick="setTrendsPreset(13, 16)" class="px-3 py-1.5 text-[10px] font-bold border border-redcarpet rounded-lg text-redcarpet bg-red-50 transition">멧갈라 당일 ±1일</button>
-                            <button onclick="setTrendsPreset(15, 29)" class="px-3 py-1.5 text-[10px] font-bold border border-neutral-200 rounded-lg text-neutral-500 hover:border-redcarpet hover:text-redcarpet transition">멧갈라 후 2주</button>
-                            <button onclick="setTrendsPreset(0, 29)" class="px-3 py-1.5 text-[10px] font-bold border border-neutral-200 rounded-lg text-neutral-500 hover:border-redcarpet hover:text-redcarpet transition">전체 보기</button>
+                            <button onclick="setTrendsPreset(0, 13, this)" class="preset-btn px-3 py-1.5 text-[10px] font-bold border border-neutral-200 rounded-lg text-neutral-500 hover:border-redcarpet hover:text-redcarpet transition">멧갈라 전 2주</button>
+                            <button onclick="setTrendsPreset(13, 16, this)" class="preset-btn px-3 py-1.5 text-[10px] font-bold border border-redcarpet rounded-lg bg-redcarpet text-white transition">멧갈라 당일 ±1일</button>
+                            <button onclick="setTrendsPreset(15, 29, this)" class="preset-btn px-3 py-1.5 text-[10px] font-bold border border-neutral-200 rounded-lg text-neutral-500 hover:border-redcarpet hover:text-redcarpet transition">멧갈라 후 2주</button>
+                            <button onclick="setTrendsPreset(0, 29, this)" class="preset-btn px-3 py-1.5 text-[10px] font-bold border border-neutral-200 rounded-lg text-neutral-500 hover:border-redcarpet hover:text-redcarpet transition">전체 보기</button>
                         </div>
                     </div>
                     <div class="h-64 relative">
@@ -398,7 +398,7 @@
 
             <div class="flex items-center gap-6 py-8">
                 <div class="flex-1 h-px bg-neutral-200"></div>
-                <span class="font-luxury text-4xl md:text-6xl font-bold tracking-widest text-neutral-100 select-none whitespace-nowrap">04. MD IMPLICATIONS</span>
+                <span class="font-luxury text-4xl md:text-6xl font-bold tracking-widest text-neutral-900 select-none whitespace-nowrap">04. MD IMPLICATIONS</span>
                 <div class="flex-1 h-px bg-neutral-200"></div>
             </div>
 
@@ -686,10 +686,19 @@
             trendsChart.update();
         }
 
-        function setTrendsPreset(start, end) {
+        function setTrendsPreset(start, end, btnEl) {
             document.getElementById('startSlider').value = start;
             document.getElementById('endSlider').value = end;
             updateTrendsRange();
+
+            // 모든 프리셋 버튼 초기화
+            document.querySelectorAll('.preset-btn').forEach(btn => {
+                btn.classList.remove('bg-redcarpet', 'text-white', 'border-redcarpet');
+                btn.classList.add('border-neutral-200', 'text-neutral-500');
+            });
+            // 클릭한 버튼만 활성화
+            btnEl.classList.remove('border-neutral-200', 'text-neutral-500');
+            btnEl.classList.add('bg-redcarpet', 'text-white', 'border-redcarpet');
         }
 
         function initBrandIgChart(brandKey) {
