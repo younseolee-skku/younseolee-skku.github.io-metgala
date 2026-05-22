@@ -179,8 +179,8 @@
                         </div>
 
                         <div class="space-y-6">
-                            <div class="w-full h-[26rem] bg-neutral-100 rounded-xl overflow-hidden relative group flex items-center justify-center border border-neutral-200">
-                                <img id="slider-image" src="jennie1.webp" alt="Met Gala Gown Look" class="w-full h-full object-cover slide-fade">
+                            <div id="slider-frame" class="w-full bg-neutral-100 rounded-xl overflow-hidden relative group flex items-center justify-center border border-neutral-200 transition-all duration-300" style="aspect-ratio: 904 / 1280;">
+                                <img id="slider-image" src="jennie1.webp" alt="Met Gala Gown Look" class="w-full h-full object-contain slide-fade">
                                 
                                 <div class="absolute top-0 inset-x-0 bg-gradient-to-b from-black/60 via-transparent to-transparent p-5 flex justify-between items-center z-10">
                                     <div>
@@ -241,7 +241,7 @@
                     <div class="flex items-center gap-2 mb-1.5">
                         <span class="text-xs font-bold tracking-widest text-neutral-400 uppercase font-luxury">03. Brand Performance Statistics</span>
                     </div>
-                    <h2 class="text-xl md:text-2xl font-bold text-neutral-900 tracking-tight">럭셔리 브랜드 수혜 규모 및 피드 성과 검증</h2>
+                    <h2 class="text-2xl font-bold text-neutral-900 tracking-tight">럭셔리 브랜드 수혜 규모 및 피드 성과 검증</h2>
                 </div>
 
                 <div class="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
@@ -258,7 +258,7 @@
                 </div>
 
                 <div class="space-y-8">
-                    <div class="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+                    <div class="bg-neutral-50 p-5 rounded-xl border border-neutral-200">
                         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5 mb-6">
                             <h3 class="text-xs font-bold text-neutral-700 flex items-center gap-1.5">
                                 <span class="w-1.5 h-1.5 bg-redcarpet rounded-full"></span>
@@ -302,12 +302,12 @@
             </section>
 
 
-            <section id="section-conclusion" class="modern-card p-8 md:p-10 rounded-xl border border-neutral-200 scroll-mt-12">
+            <section id="section-conclusion" class="modern-card p-6 md:p-8 rounded-xl border border-neutral-200 scroll-mt-6">
                 <div class="flex items-center gap-2 mb-3">
                     <span class="text-xs font-bold tracking-widest text-neutral-400 uppercase font-luxury">04. Key Takeaways</span>
                 </div>
-                <h2 class="text-2xl font-bold text-neutral-900 mb-6 tracking-tight">결론 및 마케팅 시사점</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs md:text-sm text-neutral-600 font-light leading-relaxed tracking-wide">
+                <h2 class="text-2xl font-bold text-neutral-900 mb-4 tracking-tight">결론 및 마케팅 시사점</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs md:text-sm text-neutral-600 font-light leading-relaxed">
                     <p>
                         블랙핑크 멤버들을 럭셔리 하우스의 최고 직급 글로벌 수석 앰버서더로 임명하고 공고한 파트너십을 다지는 데에는 매우 정교한 정량 데이터 지표가 자리 잡고 있었습니다. 글로벌 메가 이벤트 기점 시 한 번의 포스트 발행만으로도 브랜드 자산의 디지털 각인 효과를 천문학적인 EMV 규모로 리턴할 수 있는 인물들이기 때문입니다.
                     </p>
@@ -330,11 +330,12 @@
             Rose:   { name: '로제', likes: 1933684, comments: 15788, shares: 76900 }
         };
 
-        // --- 2. 착장 슬라이더 정밀 매핑 데이터셋 (.webp 교정 완료) ---
+        // --- 2. 멧갈라 드레스 사진별 파일 형식 및 고유 해상도 매트릭스 결합 구조 (.png 및 .webp 전면 수립) ---
         const galleryDetails = {
             jennie: {
                 brand: "CHANEL", designer: "Chanel Atelier (540 Hours)",
                 images: ["jennie1.webp", "jennie2.webp", "jennie3.webp"],
+                ratios: ["904/1280", "896/1345", "896/1345"], // 각 이미지별 고유 종횡비 반영
                 texts: [
                     "푸른빛 물결처럼 반짝이는 스팽글이 전신을 꼼꼼히 감싼 코르셋 드레스는 한눈에 시선을 끌어당깁니다. 샤넬 아틀리에가 540시간을 들여 완성한 드레스에는 1만5,000개의 자수를 올렸습니다.",
                     "샤넬 아틀리에가 가공한 실버-블루 메탈릭 텍스처는 미장센의 전방위적인 스포트라이트를 흡수하며, 가슴에서 골반 라인까지 떨어지는 타이트한 코르셋 보디 구조를 입체적으로 장식합니다.",
@@ -343,7 +344,8 @@
             },
             rose: {
                 brand: "SAINT LAURENT", designer: "Anthony Vaccarello",
-                images: ["rose1.webp", "rose2.webp", "rose3.webp"],
+                images: ["rose1.png", "rose2.webp", "rose3.webp"], // rose1.png 수정 완료
+                ratios: ["878/1148", "896/1349", "952/1285"],
                 texts: [
                     "이번 룩의 핵심은 드레스의 미니멀한 블랙 실루엣 디테일과 이브 생 로랑 특유의 에지 아우라 및 주얼리의 조화입니다.",
                     "이브 생 로랑은 과거 루브르 박물관 천장에 그려진 조르주 브라크의 작품 ‘새들(The Birds)’에서 깊은 영감을 받았습니다. 안토니 바카렐로는 최근 컬렉션에서 이 ‘새’ 모티브를 다시 불러냈고, 로제는 이를 귀걸이와 브로치로 화려하게 표현했습니다.",
@@ -353,6 +355,7 @@
             jisoo: {
                 brand: "DIOR & DIOR BEAUTY", designer: "Jonathan Anderson",
                 images: ["jisoo1.webp", "jisoo2.webp", "jisoo3.webp"],
+                ratios: ["896/1345", "776/1192", "974/1218"],
                 texts: [
                     "이번 룩의 중심에는 자연스럽게 빛나는 로즈 빛 광채가 있었다. 디올 크리에이티브 디렉터 조나단 앤더슨이 모네의 작품에서 영감 받아 디자인한 핑크 컬러의 디올 커스텀 드레스입니다.",
                     "드레스 위로 섬세한 플로럴 디테일과 꽃을 형상화한 헤드 피스가 겹쳐지며 전체 룩은 하나의 인상주의 회화처럼 캔버스 위에 완성되었습니다.",
@@ -362,6 +365,7 @@
             lisa: {
                 brand: "ROBERT WUN", designer: "Robert Wun Haute Couture",
                 images: ["lisa1.webp", "lisa2.webp", "lisa3.webp"],
+                ratios: ["620/930", "610/915", "810/1013"],
                 texts: [
                     "리사는 크리스털로 눈부시게 수놓은 시스루 드레스를 입고 레드 카펫을 밟았습니다. 하지만 그녀의 룩에서 가장 눈에 띈 것은 거대한 베일이었습니다.",
                     "로버트 운의 꾸뛰르 컬렉션 시그니처인 어깨 위 팔 장식 레이아웃이 독보적인 전위성을 형성합니다. 리사는 현장 인터뷰를 통해 이번 룩에 대한 독특한 비하인드를 깜짝 전하기도 했습니다.",
@@ -383,19 +387,19 @@
             lv:     [92, 76, 78, 77, 77, 85, 95, 95, 78, 78, 78, 87, 91, 100, 99, 84, 80, 79, 75, 81, 87, 91, 78, 74, 73, 75, 81, 88, 88, 76]
         };
 
-        // --- 4. 인스타그램 공식 피드 데이터 및 텍스트 교정 매트릭스 ---
+        // --- 4. 인스타그램 공식 피드 데이터 레이어 (dior2-dior5 이미지 스왑 및 chanel1.jpeg 단독 확장자 동기화 보존) ---
         const csvBrandFeedData = {
             Chanel: [
-                { id: 1, type: "제니 피처링 메인", celebs: "Jennie, Margot Robbie, Gracie Abrams, Lily-Rose Depp", likes: 845000, url: "https://www.instagram.com/p/DX9B3EMDusN/", img: "chanel1.jpg" },
+                { id: 1, type: "제니 피처링 메인", celebs: "Jennie, Margot Robbie, Gracie Abrams, Lily-Rose Depp", likes: 845000, url: "https://www.instagram.com/p/DX9B3EMDusN/", img: "chanel1.jpeg" },
                 { id: 2, type: "제니 추가 포스트", celebs: "Bhavitha Mandava, Gracie Abrams, Awar Odhiang, Lily-Rose Depp, Jennie, Ayo Edebiri", likes: 76000, url: "https://www.instagram.com/p/DX99c2oDv8B/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==", img: "chanel2.jpg" },
                 { id: 3, type: "Other Celebs", celebs: "Lily-Rose Depp, A$AP Rocky, Gracie Abrams, Ayo Edebiri, Bhavitha Mandava, Awar Odhiang", likes: 335000, url: "https://www.instagram.com/p/DX9rauRjkcN/", img: "chanel3.jpg" }
             ],
             Dior: [
                 { id: 1, type: "지수 단독 피드", celebs: "Jisoo", likes: 1490000, url: "https://www.instagram.com/p/DX8UNQfiIsD/", img: "dior1.jpg" },
-                { id: 2, type: "Other Celebs 스냅", celebs: "Sabrina Carpenter", likes: 1076000, url: "https://www.instagram.com/p/DX-SAk_COFC/", img: "dior2.jpg" },
+                { id: 2, type: "Other Celebs 모델", celebs: "Paul Anthony Kelly", likes: 114000, url: "https://www.instagram.com/p/DX85sSpiLfa/", img: "dior2.jpg" }, // Paul Anthony Kelly 위치 dior2 스왑 고정
                 { id: 3, type: "Other Celebs 포멀", celebs: "Naomi Watts, Karlie Kloss", likes: 137000, url: "https://www.instagram.com/p/DX9GNYVCLDy/", img: "dior3.jpg" },
-                { id: 4, type: "Other Celebs 모델", celebs: "Paul Anthony Kelly", likes: 114000, url: "https://www.instagram.com/p/DX85sSpiLfa/", img: "dior4.jpg" },
-                { id: 5, type: "Other Celebs 비하인드", celebs: "Alexa Chung, Miranda Kerr", likes: 72000, url: "https://www.instagram.com/p/DX9e1CBiBmH/", img: "dior5.jpg" },
+                { id: 4, type: "Other Celebs 비하인드", celebs: "Alexa Chung, Miranda Kerr", likes: 72000, url: "https://www.instagram.com/p/DX9e1CBiBmH/", img: "dior4.jpg" },
+                { id: 5, type: "Other Celebs 스냅", celebs: "Sabrina Carpenter", likes: 1076000, url: "https://www.instagram.com/p/DX-SAk_COFC/", img: "dior5.jpg" }, // Sabrina Carpenter 위치 dior5 스왑 고정
                 { id: 6, type: "Other Celebs 주니어", celebs: "Sunday Rose", likes: 54000, url: "https://www.instagram.com/p/DYBVkaziHk5/", img: "dior6.jpg" }
             ],
             SaintLaurent: [
@@ -509,15 +513,20 @@
             updateGalleryUI();
         }
 
+        // 이미지 고유 규격을 실시간 동적 대입하여 온전하게 100% 렌더링되도록 수정된 코어 로직
         function updateGalleryUI() {
             const gown = galleryDetails[currentActiveGown];
             const imgEl = document.getElementById('slider-image');
+            const frameEl = document.getElementById('slider-frame');
             
             imgEl.style.opacity = '0';
             imgEl.style.transform = 'scale(0.98)';
             
             setTimeout(() => {
+                // 프레임 aspect-ratio와 이미지 src 수동 동기화 매핑
+                frameEl.style.aspectRatio = gown.ratios[currentSlideIndex];
                 imgEl.src = gown.images[currentSlideIndex];
+                
                 document.getElementById('gallery-brand').innerText = gown.brand;
                 document.getElementById('gallery-designer').innerText = `Designer: ${gown.designer}`;
                 document.getElementById('slider-indexer').innerText = `${currentSlideIndex + 1} / ${gown.images.length}`;
