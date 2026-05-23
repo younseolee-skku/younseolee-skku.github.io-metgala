@@ -677,7 +677,7 @@
             document.getElementById('startLabel').innerText = trendTimeline.labels[start];
             document.getElementById('endLabel').innerText = trendTimeline.labels[end];
             document.getElementById('dateRangeLabel').innerText =
-                `${trendTimeline.labels[start]} ~ ${trendTimeline.labels[end]} (${dayCount}일)`;
+                `${trendTimeline.labels[start]} ~ ${trendTimeline.labels[end]} (${dayCount}day)`;
 
             trendsChart.data.labels = slicedLabels;
             trendsChart.data.datasets[0].data = trendTimeline.chanel.slice(start, end + 1);
