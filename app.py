@@ -29,7 +29,7 @@ html_data = html_data.replace('jisoo3.webp', 'https://raw.githubusercontent.com/
 html_data = html_data.replace('lisa1.webp', 'https://raw.githubusercontent.com/younseolee-skku/younseolee-skku.github.io-metgala/main/lisa1.webp')
 html_data = html_data.replace('lisa2.webp', 'https://raw.githubusercontent.com/younseolee-skku/younseolee-skku.github.io-metgala/main/lisa2.webp')
 html_data = html_data.replace('lisa3.webp', 'https://raw.githubusercontent.com/younseolee-skku/younseolee-skku.github.io-metgala/main/lisa3.webp')
-html_data = html_data.replace('rose1.webp', 'https://raw.githubusercontent.com/younseolee-skku/younseolee-skku.github.io-metgala/main/rose1.webp')
+html_data = html_data.replace('rose1.png', 'https://raw.githubusercontent.com/younseolee-skku/younseolee-skku.github.io-metgala/main/rose1.png')
 html_data = html_data.replace('rose2.webp', 'https://raw.githubusercontent.com/younseolee-skku/younseolee-skku.github.io-metgala/main/rose2.webp')
 html_data = html_data.replace('rosee3.webp', 'https://raw.githubusercontent.com/younseolee-skku/younseolee-skku.github.io-metgala/main/rose3.webp')
 
