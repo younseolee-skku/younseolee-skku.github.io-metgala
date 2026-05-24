@@ -1,16 +1,30 @@
 import streamlit as st
 import streamlit.components.v1 as components
-import os
-
-# 1. 이미지가 있는 폴더 확인 (현재 프로젝트 루트 폴더)
-# 2. 이미지 파일들을 읽어서 Streamlit이 인식하게 함
-# (이미지가 파일명으로 바로 쓰일 수 있도록 환경을 잡아주는 과정입니다)
 
 st.set_page_config(layout="wide")
 
-# index.html 파일 읽기
+# 1. 깃허브 리포지토리의 Raw 이미지 기본 경로
+# (은서님의 리포지토리 주소에 맞춰 설정했습니다)
+base_url = "https://raw.githubusercontent.com/younseolee-skku/younseolee-skku.github.io-metgala/main/"
+
+# 2. 가진 이미지 파일 목록
+image_files = [
+    "chanel1.jpeg", "chanel2.jpg", "chanel3.jpg",
+    "dior1.jpg", "dior2.jpg", "dior3.jpg", "dior4.jpg", "dior5.jpg", "dior6.jpg",
+    "jennie1.webp", "jennie2.webp", "jennie3.webp",
+    "jisoo1.webp", "jisoo2.webp", "jisoo3.webp",
+    "lisa1.webp", "lisa2.webp", "lisa3.webp",
+    "rose1.png", "rose1.webp", "rose2.webp", "rose3.webp"
+]
+
+# 3. index.html 파일 읽기
 with open("index.html", "r", encoding="utf-8") as f:
     html_data = f.read()
 
-# 3. HTML 렌더링
-components.html(html_data, height=2000, scrolling=True)
+# 4. 이미지 경로 자동 치환
+for img in image_files:
+    # index.html 안의 src="파일명"을 찾아 src="깃허브주소/파일명"으로 바꿉니다.
+    html_data = html_data.replace(f'src="{img}"', f'src="{base_url}{img}"')
+
+# 5. 화면에 띄우기
+components.html(html_data, height=3000, scrolling=True)
