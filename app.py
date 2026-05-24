@@ -1,13 +1,33 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-st.set_page_config(layout="wide")
+# 1. 화면을 꽉 차게 만들고, 스트림릿 메뉴/헤더를 숨기는 설정
+st.set_page_config(layout="wide", initial_sidebar_state="collapsed")
 
-# 1. 깃허브 리포지토리의 Raw 이미지 기본 경로
-# (은서님의 리포지토리 주소에 맞춰 설정했습니다)
+# 마법의 CSS: 스트림릿의 여백과 메뉴를 싹 지웁니다.
+st.markdown("""
+    <style>
+        #MainMenu {visibility: hidden;}
+        header {visibility: hidden;}
+        footer {visibility: hidden;}
+        .block-container {
+            padding-top: 0rem;
+            padding-bottom: 0rem;
+            padding-left: 0rem;
+            padding-right: 0rem;
+        }
+        iframe {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
+# 2. 깃허브 이미지 기본 경로
 base_url = "https://raw.githubusercontent.com/younseolee-skku/younseolee-skku.github.io-metgala/main/"
 
-# 2. 가진 이미지 파일 목록
+# 3. 은서님의 파일 목록 (보내주신 사진 보고 다 적었습니다!)
 image_files = [
     "chanel1.jpeg", "chanel2.jpg", "chanel3.jpg",
     "dior1.jpg", "dior2.jpg", "dior3.jpg", "dior4.jpg", "dior5.jpg", "dior6.jpg",
@@ -17,14 +37,13 @@ image_files = [
     "rose1.png", "rose1.webp", "rose2.webp", "rose3.webp"
 ]
 
-# 3. index.html 파일 읽기
+# 4. index.html 읽기
 with open("index.html", "r", encoding="utf-8") as f:
     html_data = f.read()
 
-# 4. 이미지 경로 자동 치환
+# 5. 이미지 경로 자동 변환 (건드릴 필요 없음!)
 for img in image_files:
-    # index.html 안의 src="파일명"을 찾아 src="깃허브주소/파일명"으로 바꿉니다.
     html_data = html_data.replace(f'src="{img}"', f'src="{base_url}{img}"')
 
-# 5. 화면에 띄우기
-components.html(html_data, height=3000, scrolling=True)
+# 6. 화면 전체에 꽉 채워서 띄우기
+components.html(html_data, height=4000, scrolling=True)
