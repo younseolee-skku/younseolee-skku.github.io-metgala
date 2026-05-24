@@ -3,7 +3,7 @@ import streamlit.components.v1 as components
 
 # 화면 설정
 st.set_page_config(
-    page_title="2026 Met Gala Archive",  # 탭에 보일 이름
+    page_title="Met Gala Archive",  # 탭에 보일 이름
     page_icon="✨",                  # 탭에 보일 아이콘 (이모지나 이미지 URL 가능)
     layout="wide",
     initial_sidebar_state="collapsed"
