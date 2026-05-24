@@ -2,7 +2,12 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 # 화면 설정
-st.set_page_config(layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(
+    page_title="2026 Met Gala Archive",  # 탭에 보일 이름
+    page_icon="✨",                  # 탭에 보일 아이콘 (이모지나 이미지 URL 가능)
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
 st.markdown("<style>.block-container { padding: 0 !important; } iframe { width: 100vw; height: 100vh; border: none; }</style>", unsafe_allow_html=True)
 
 # 1. HTML 파일 읽기
