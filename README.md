@@ -20,6 +20,8 @@ This project visualizes *why* luxury brands invest in BLACKPINK by turning the 2
 
 The 2026 Met Gala recorded a total EMV of **$1.49 billion** and **2.23 billion engagements**—the strongest media impact in the event's history. BLACKPINK-affiliated brands occupied **3 of the top 4 spots** in the Wearisma EMV ranking.
 
+Therefore, fashion industry professionals and practical fashion MDs need to understand the relationship between BLACKPINK and the Met Gala in order to quickly derive strategic insights and identify marketing opportunities.
+
 ---
 
 ## 📌 Key Features
