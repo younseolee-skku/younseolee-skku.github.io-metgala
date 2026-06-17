@@ -6,6 +6,10 @@
 
 > A single-page intelligence dashboard built for fashion MDs to benchmark BLACKPINK members' influence at the 2026 Met Gala through real social data, Google Trends, and EMV rankings.
 
+[Final project [2024312091 Younseo Lee] _compressed.pdf](https://github.com/user-attachments/files/29029092/Final.project.2024312091.Younseo.Lee._compressed.pdf)
+
+*you can access this pdf at main branch also.
+
 ---
 
 ## 🎯 Project Overview
